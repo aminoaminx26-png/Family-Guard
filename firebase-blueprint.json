@@ -1,0 +1,340 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Parent or family guardian account settings and preferences.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Authenticated Firebase UID of the user."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Display name shown on account settings and welcome header."
+        },
+        "email": {
+          "type": "string",
+          "description": "Account email address (owner-only read)."
+        },
+        "privacyModeEnabled": {
+          "type": "boolean",
+          "description": "When true, masks sensitive child/app details in the Parent Dashboard UI."
+        },
+        "notificationsEnabled": {
+          "type": "boolean",
+          "description": "Whether alerts and limit warnings are enabled."
+        },
+        "preferredRole": {
+          "type": "string",
+          "enum": ["parent", "child"],
+          "description": "Last selected app mode on this device."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp set via FieldValue.serverTimestamp()."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp set via FieldValue.serverTimestamp()."
+        }
+      },
+      "required": ["userId", "createdAt", "updatedAt"]
+    },
+    "PairingCode": {
+      "title": "PairingCode",
+      "description": "Short-lived, single-use pairing code record keyed by SHA-256 hash of the code.",
+      "type": "object",
+      "properties": {
+        "parentUid": {
+          "type": "string",
+          "description": "UID of the parent who generated the pairing code."
+        },
+        "label": {
+          "type": "string",
+          "description": "Optional label for the child device being paired."
+        },
+        "used": {
+          "type": "boolean",
+          "description": "True once claimed by a child device."
+        },
+        "claimedByUid": {
+          "type": "string",
+          "description": "UID of the authenticated user on the child device that claimed the code."
+        },
+        "claimedDeviceId": {
+          "type": "string",
+          "description": "Generated non-sensitive device ID linked during pairing."
+        },
+        "expiresAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Expiration timestamp after which the code cannot be redeemed."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp set via FieldValue.serverTimestamp()."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp set via FieldValue.serverTimestamp()."
+        }
+      },
+      "required": ["parentUid", "used", "expiresAt", "createdAt", "updatedAt"]
+    },
+    "ChildDevice": {
+      "title": "ChildDevice",
+      "description": "Linked child device metadata, transparency status, and latest screen-time summary.",
+      "type": "object",
+      "properties": {
+        "parentUid": {
+          "type": "string",
+          "description": "UID of the parent owner."
+        },
+        "childAuthUid": {
+          "type": "string",
+          "description": "UID signed in on the child device."
+        },
+        "memberUids": {
+          "type": "array",
+          "description": "Bounded list of up to 2 authorized UIDs [parentUid, childAuthUid]."
+        },
+        "childName": {
+          "type": "string",
+          "description": "Friendly name of the child or device label."
+        },
+        "deviceName": {
+          "type": "string",
+          "description": "Device model/display name."
+        },
+        "androidVersion": {
+          "type": "string",
+          "description": "Android OS release version."
+        },
+        "monitoringActive": {
+          "type": "boolean",
+          "description": "Whether transparent parental monitoring is active."
+        },
+        "usageAccessGranted": {
+          "type": "boolean",
+          "description": "Whether PACKAGE_USAGE_STATS is currently granted."
+        },
+        "isOnline": {
+          "type": "boolean",
+          "description": "Latest device connectivity state."
+        },
+        "totalScreenTimeMs": {
+          "type": "integer",
+          "description": "Total screen time in milliseconds for today."
+        },
+        "appsUsedCount": {
+          "type": "integer",
+          "description": "Count of apps with usage recorded today."
+        },
+        "activeAlertsCount": {
+          "type": "integer",
+          "description": "Count of unacknowledged alerts."
+        },
+        "lastSeenAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of latest heartbeat."
+        },
+        "lastSyncAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of latest usage sync."
+        },
+        "syncStatus": {
+          "type": "string",
+          "enum": ["synced", "syncing", "failed", "pending"],
+          "description": "Latest sync state."
+        },
+        "pairingCodeHash": {
+          "type": "string",
+          "description": "SHA-256 hash of the pairing code used when linking."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp set via FieldValue.serverTimestamp()."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp set via FieldValue.serverTimestamp()."
+        }
+      },
+      "required": [
+        "parentUid",
+        "memberUids",
+        "childName",
+        "deviceName",
+        "androidVersion",
+        "monitoringActive",
+        "usageAccessGranted",
+        "isOnline",
+        "totalScreenTimeMs",
+        "appsUsedCount",
+        "activeAlertsCount",
+        "syncStatus",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "DailyUsage": {
+      "title": "DailyUsage",
+      "description": "Daily aggregated screen-time summary for a linked child device.",
+      "type": "object",
+      "properties": {
+        "deviceId": { "type": "string" },
+        "parentUid": { "type": "string" },
+        "memberUids": { "type": "array" },
+        "date": { "type": "string" },
+        "totalScreenTimeMs": { "type": "integer" },
+        "appsCount": { "type": "integer" },
+        "topAppName": { "type": "string" },
+        "topAppPackage": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "deviceId",
+        "parentUid",
+        "memberUids",
+        "date",
+        "totalScreenTimeMs",
+        "appsCount",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "AppUsageEntry": {
+      "title": "AppUsageEntry",
+      "description": "Per-app usage statistics collected transparently via UsageStatsManager.",
+      "type": "object",
+      "properties": {
+        "deviceId": { "type": "string" },
+        "parentUid": { "type": "string" },
+        "memberUids": { "type": "array" },
+        "packageName": { "type": "string" },
+        "appName": { "type": "string" },
+        "usageTimeMs": { "type": "integer" },
+        "launchCount": { "type": "integer" },
+        "lastUsedAt": { "type": "integer" },
+        "date": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "deviceId",
+        "parentUid",
+        "memberUids",
+        "packageName",
+        "appName",
+        "usageTimeMs",
+        "launchCount",
+        "lastUsedAt",
+        "date",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "DeviceAlert": {
+      "title": "DeviceAlert",
+      "description": "Non-sensitive parental alert such as limit warning, sync failure, or revoked usage access.",
+      "type": "object",
+      "properties": {
+        "deviceId": { "type": "string" },
+        "parentUid": { "type": "string" },
+        "memberUids": { "type": "array" },
+        "type": {
+          "type": "string",
+          "enum": ["limit_exceeded", "usage_access_revoked", "sync_failed", "offline_timeout", "settings_changed"]
+        },
+        "title": { "type": "string" },
+        "message": { "type": "string" },
+        "packageName": { "type": "string" },
+        "severity": { "type": "string", "enum": ["info", "warning", "critical"] },
+        "acknowledged": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "deviceId",
+        "parentUid",
+        "memberUids",
+        "type",
+        "title",
+        "message",
+        "severity",
+        "acknowledged",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "AppLimit": {
+      "title": "AppLimit",
+      "description": "Parent-configured daily app time limit used for warnings and parent alerts.",
+      "type": "object",
+      "properties": {
+        "deviceId": { "type": "string" },
+        "parentUid": { "type": "string" },
+        "memberUids": { "type": "array" },
+        "packageName": { "type": "string" },
+        "appName": { "type": "string" },
+        "dailyLimitMinutes": { "type": "integer" },
+        "warningEnabled": { "type": "boolean" },
+        "isActive": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "deviceId",
+        "parentUid",
+        "memberUids",
+        "packageName",
+        "appName",
+        "dailyLimitMinutes",
+        "warningEnabled",
+        "isActive",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/users/{uid}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "User profile and privacy preferences isolated per authenticated UID."
+    },
+    "/pairingCodes/{codeHash}": {
+      "schema": { "$ref": "#/entities/PairingCode" },
+      "description": "One-time SHA-256 hashed pairing codes for secure Parent-Child linking."
+    },
+    "/devices/{deviceId}": {
+      "schema": { "$ref": "#/entities/ChildDevice" },
+      "description": "Linked child devices accessible only to authorized parentUid and childAuthUid."
+    },
+    "/devices/{deviceId}/usage/{date}": {
+      "schema": { "$ref": "#/entities/DailyUsage" },
+      "description": "Daily screen-time summaries for a child device."
+    },
+    "/devices/{deviceId}/apps/{packageName}": {
+      "schema": { "$ref": "#/entities/AppUsageEntry" },
+      "description": "Per-app usage statistics for a child device."
+    },
+    "/devices/{deviceId}/alerts/{alertId}": {
+      "schema": { "$ref": "#/entities/DeviceAlert" },
+      "description": "System and usage-limit alerts for a child device."
+    },
+    "/devices/{deviceId}/limits/{packageName}": {
+      "schema": { "$ref": "#/entities/AppLimit" },
+      "description": "Daily app usage limits configured by the parent."
+    }
+  }
+}

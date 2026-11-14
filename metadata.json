@@ -1,0 +1,6 @@
+{
+  "name": "Family Guard",
+  "description": "Legal and transparent parental control system with Parent Dashboard, Child Device Companion, UsageStatsManager tracking, Room local cache, WorkManager sync, and Firestore security.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

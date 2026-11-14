@@ -1,0 +1,154 @@
+<resources>
+    <string name="app_name">Family Guard</string>
+
+    <!-- Auth & Onboarding -->
+    <string name="auth_title">Family Guard</string>
+    <string name="auth_subtitle">نظام رقابة أبوية قانوني وشفاف يعتمد على صلاحيات Android الرسمية وحماية Firebase الآمنة.</string>
+    <string name="auth_google_button">تسجيل الدخول عبر Google</string>
+    <string name="auth_checking_session">جاري التحقق من جلسة الحساب…</string>
+    <string name="auth_transparency_badge">شفافية كاملة ١٠٠٪ • بدون إخفاء أو تجسس</string>
+    <string name="auth_error_generic">تعذر إتمام تسجيل الدخول. يرجى المحاولة مرة أخرى.</string>
+
+    <!-- Role Selection -->
+    <string name="role_title">اختر وضع الجهاز</string>
+    <string name="role_subtitle">حدد دور هذا الجهاز داخل العائلة.</string>
+    <string name="role_parent_title">تطبيق الوالد (Parent)</string>
+    <string name="role_parent_desc">متابعة لوحة التحكم، إنشاء رموز الربط، ضبط حدود التطبيقات اليومية، واستلام التنبيهات.</string>
+    <string name="role_child_title">تطبيق الطفل (Child)</string>
+    <string name="role_child_desc">ربط الجهاز بحساب الوالد عبر رمز لمرة واحدة ومشاركة إحصائيات الاستخدام بشفافية.</string>
+    <string name="role_continue">متابعة</string>
+    <string name="switch_mode">تبديل الوضع</string>
+
+    <!-- Parent Navigation -->
+    <string name="nav_dashboard">لوحة التحكم</string>
+    <string name="nav_devices">الأجهزة</string>
+    <string name="nav_limits">الحدود</string>
+    <string name="nav_privacy_alerts">التنبيهات والخصوصية</string>
+
+    <!-- Parent Dashboard -->
+    <string name="greeting_hello">مرحباً</string>
+    <string name="child_device_label">جهاز الطفل</string>
+    <string name="screen_time_label">وقت الشاشة</string>
+    <string name="most_used_label">الأكثر استخداماً</string>
+    <string name="apps_used_label">التطبيقات المستخدمة</string>
+    <string name="alerts_label">التنبيهات</string>
+    <string name="last_sync_label">آخر مزامنة</string>
+    <string name="device_status_label">حالة الجهاز</string>
+    <string name="connection_status_label">الاتصال</string>
+    <string name="monitoring_status_label">حالة الرقابة</string>
+    <string name="todays_usage_label">استخدام اليوم</string>
+    <string name="status_online">متصل</string>
+    <string name="status_offline">غير متصل</string>
+    <string name="status_active">نشطة</string>
+    <string name="status_paused">متوقفة مؤقتاً</string>
+    <string name="status_synced">تمت المزامنة</string>
+    <string name="status_syncing">جاري المزامنة</string>
+    <string name="status_failed">فشلت المزامنة</string>
+    <string name="status_pending">قيد الانتظار</string>
+    <string name="privacy_mode_on">وضع الخصوصية مفعّل</string>
+    <string name="privacy_mode_off">وضع الخصوصية متوقف</string>
+    <string name="privacy_masked_child">طفل محمي</string>
+    <string name="privacy_masked_app">تطبيق محمي</string>
+    <string name="privacy_masked_device">جهاز عائلي</string>
+    <string name="no_devices_title">لا توجد أجهزة أطفال مرتبطة</string>
+    <string name="no_devices_subtitle">أنشئ رمز ربط آمناً لمرة واحدة وأدخله في جهاز الطفل للبدء.</string>
+    <string name="no_usage_data">لم يتم تسجيل استخدام للتطبيقات اليوم بعد.</string>
+
+    <!-- Devices & Pairing -->
+    <string name="my_children_devices">أطفالي / الأجهزة</string>
+    <string name="add_child_device">إضافة جهاز طفل</string>
+    <string name="generate_pairing_code">إنشاء رمز الربط</string>
+    <string name="pairing_code_title">رمز ربط لمرة واحدة</string>
+    <string name="pairing_code_hint">أدخل هذا الرمز قصير العمر في جهاز الطفل خلال ١٥ دقيقة. الرمز صالح للاستخدام مرة واحدة فقط.</string>
+    <string name="pairing_device_label_hint">اسم الطفل أو الجهاز (مثال: جهاز سامي)</string>
+    <string name="copy_code">نسخ الرمز</string>
+    <string name="code_copied">تم نسخ رمز الربط</string>
+    <string name="android_version_fmt">أندرويد %s</string>
+    <string name="last_seen_fmt">آخر ظهور: %s</string>
+    <string name="monitoring_toggle">تفعيل الرقابة</string>
+    <string name="never_synced">لم تتم المزامنة بعد</string>
+
+    <!-- Limits & Usage -->
+    <string name="app_limits_title">حدود التطبيقات والاستخدام</string>
+    <string name="app_limits_notice">يعتمد Family Guard على تتبع الاستخدام والتحذيرات وإشعار الوالد بشفافية دون إغلاق إجباري أو طرق تحايلية.</string>
+    <string name="add_limit">تحديد حد يومي</string>
+    <string name="limit_minutes_fmt">%d دقيقة/يوم</string>
+    <string name="package_name_hint">معرف الحزمة (مثال: com.google.android.youtube)</string>
+    <string name="app_name_hint">اسم التطبيق (مثال: YouTube)</string>
+    <string name="daily_limit_minutes_hint">الحد اليومي (بالدقائق)</string>
+    <string name="save_limit">حفظ الحد</string>
+    <string name="remove_limit">إزالة</string>
+    <string name="launches_fmt">%d فتحات</string>
+    <string name="limit_exceeded_badge">تم تجاوز الحد</string>
+    <string name="no_limits_set">لم يتم تعيين حدود يومية للتطبيقات بعد.</string>
+
+    <!-- Alerts -->
+    <string name="alerts_title">التنبيهات</string>
+    <string name="acknowledge">تأكيد القراءة</string>
+    <string name="acknowledged">تمت القراءة</string>
+    <string name="no_alerts">لا توجد تنبيهات نشطة حالياً.</string>
+
+    <!-- Privacy & Account -->
+    <string name="privacy_data_title">الخصوصية والبيانات</string>
+    <string name="privacy_what_title">ما البيانات التي يتم جمعها</string>
+    <string name="privacy_what_body">فقط معرفات التطبيقات، مدة الاستخدام اليومية، عدد مرات الفتح، وحالة المزامنة. لا نجمع أبداً الرسائل أو المكالمات أو كلمات المرور أو الشاشة أو الصوت.</string>
+    <string name="privacy_why_title">لماذا يتم جمعها</string>
+    <string name="privacy_why_body">لمساعدة الوالدين والأطفال على متابعة وقت الشاشة اليومي بشفافية وإرسال تنبيهات لطيفة عند الوصول للحد اليومي.</string>
+    <string name="privacy_where_title">أين تُخزّن ومدة الاحتفاظ</string>
+    <string name="privacy_where_body">تُحفظ محلياً في قاعدة Room وتُزامن عبر HTTPS إلى حسابك المعزول في Firebase Firestore وتبقى حتى تقوم بحذفها.</string>
+    <string name="delete_child_data">حذف بيانات جهاز الطفل</string>
+    <string name="delete_child_confirm_title">حذف بيانات جهاز الطفل؟</string>
+    <string name="delete_child_confirm_body">سيؤدي هذا إلى حذف الجهاز المرتبط وسجل الاستخدام والحدود والتنبيهات نهائياً من Firestore والتخزين المحلي.</string>
+    <string name="delete_account">حذف الحساب</string>
+    <string name="delete_account_confirm_title">حذف الحساب؟</string>
+    <string name="delete_account_confirm_body">سيتم حذف ملف Family Guard الخاص بك وتسجيل خروجك نهائياً.</string>
+    <string name="account_settings_title">إعدادات الحساب</string>
+    <string name="logout">تسجيل الخروج</string>
+    <string name="cancel">إلغاء</string>
+    <string name="confirm_delete">حذف</string>
+    <string name="close">إغلاق</string>
+    <string name="retry">إعادة المحاولة</string>
+
+    <!-- Child App -->
+    <string name="child_welcome_title">مرحباً بك في Family Guard</string>
+    <string name="child_welcome_body">هذا الجهاز سيتم ربطه بحساب الوالد بشكل شفاف وقانوني وفق صلاحيات Android الرسمية.</string>
+    <string name="start_setup">بدء الإعداد</string>
+    <string name="enter_parent_code_title">أدخل رمز ربط الوالد</string>
+    <string name="enter_parent_code_hint">الرمز المكون من ٨ خانات (مثال: 7K4P-92MX)</string>
+    <string name="child_name_input_hint">اسم الطفل (مثال: سامي)</string>
+    <string name="connect_device">ربط الجهاز</string>
+    <string name="device_connected_title">تم ربط الجهاز ✓</string>
+    <string name="transparency_active_title">Family Guard نشط</string>
+    <string name="transparency_active_subtitle">هذا الجهاز محمي بواسطة الرقابة الأبوية.</string>
+    <string name="transparency_active_body">يتم جمع إحصائيات الاستخدام وفق صلاحيات Android وإرسالها بشكل آمن إلى حساب الوالد.</string>
+    <string name="usage_access_required_title">صلاحية Usage Access مطلوبة</string>
+    <string name="usage_access_required_body">يحتاج Family Guard إلى Usage Access حتى يتمكن من حساب وقت استخدام التطبيقات.</string>
+    <string name="open_android_settings">فتح إعدادات Android</string>
+    <string name="usage_access_granted">تم منح صلاحية Usage Access</string>
+    <string name="notifications_permission_title">السماح بإشعارات الحدود والمزامنة</string>
+    <string name="notifications_permission_body">فعّل الإشعارات لعرض حالة الحماية بشفافية وتنبيهات الحدود اليومية.</string>
+    <string name="grant_notifications">السماح بالإشعارات</string>
+    <string name="sync_now">مزامنة الآن</string>
+    <string name="unlink_device">إلغاء ربط الجهاز</string>
+    <string name="unlink_confirm_body">هل تريد إلغاء ربط هذا الجهاز من Family Guard على هذا الهاتف؟</string>
+
+    <!-- Notifications -->
+    <string name="notif_channel_transparency_name">حالة الحماية</string>
+    <string name="notif_channel_alerts_name">تنبيهات الوالدين</string>
+    <string name="notif_channel_limits_name">تحذيرات حدود التطبيقات</string>
+    <string name="notif_settings_updated">تتوفر إعدادات رقابة أبوية جديدة</string>
+    <string name="notif_limit_warning_title">تم الوصول للحد اليومي: %s</string>
+    <string name="notif_limit_warning_body">لقد وصلت إلى الحد اليومي (%1$d دقيقة) لتطبيق %2$s.</string>
+
+    <!-- Errors -->
+    <string name="err_no_internet">لا يوجد اتصال بالإنترنت. البيانات محفوظة محلياً بأمان.</string>
+    <string name="err_firebase_unavailable">الخدمة السحابية غير متاحة حالياً. يرجى المحاولة لاحقاً.</string>
+    <string name="err_invalid_pairing_code">رمز الربط غير صحيح. يرجى التحقق من الرمز.</string>
+    <string name="err_expired_pairing_code">انتهت صلاحية رمز الربط. أنشئ رمزاً جديداً من جهاز الوالد.</string>
+    <string name="err_used_pairing_code">تم استخدام رمز الربط هذا مسبقاً.</string>
+    <string name="err_unauthorized">يرجى تسجيل الدخول بحساب Google للمتابعة.</string>
+    <string name="err_usage_access_disabled">صلاحية Usage Access معطلة حالياً.</string>
+    <string name="err_permission_denied">تم رفض الوصول بواسطة قواعد الأمان.</string>
+    <string name="err_token_expired">انتهت صلاحية الجلسة. يرجى إعادة تسجيل الدخول.</string>
+    <string name="err_device_unlinked">تم إلغاء ربط هذا الجهاز من حساب الوالد.</string>
+</resources>
